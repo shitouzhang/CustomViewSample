@@ -16,36 +16,37 @@ import android.view.View
  *     desc    : This is CircleView2
  * </pre>
  */
-class CircleView2: View {
+class CircleView2 : View {
 
     val color = Color.RED
 
-    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     constructor(context: Context) : super(context) {
         init()
     }
 
 
-
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
-
+    ///margin 属性是由父容器控制的
     override fun draw(canvas: Canvas) {
         super.draw(canvas)
+        //height/getHeight当前View的宽和高
         val height = height
         val width = width
         val radius = Math.min(width, height) / 2f
-
-        canvas.drawCircle(width/2f,height/2f,radius,paint)
-
-
+        canvas.drawCircle(width / 2f, height / 2f, radius, paint)
     }
 
 

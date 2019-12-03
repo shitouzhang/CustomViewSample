@@ -46,22 +46,22 @@ class TestActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        mFlowLayout.setAdapter(object : TagAdapter<String>(mVals) {
-
-            override fun getView(parent: FlowLayout, position: Int, s: String): View {
-                val tv = LayoutInflater.from(applicationContext).inflate(
-                    R.layout.tv,
-                    mFlowLayout, false
-                ) as TextView
-                tv.text = s
-                Log.d(TAG,s);
-                return tv
-            }
-
-            override fun setSelected(position: Int, s: String): Boolean {
-                return s == "Android"
-            }
-        })
+//        mFlowLayout.setAdapter(object : TagAdapter<String>(mVals) {
+//
+//            override fun getView(parent: FlowLayout, position: Int, s: String): View {
+//                val tv = LayoutInflater.from(applicationContext).inflate(
+//                    R.layout.tv,
+//                    mFlowLayout, false
+//                ) as TextView
+//                tv.text = s
+//                Log.d(TAG,s);
+//                return tv
+//            }
+//
+//            override fun setSelected(position: Int, s: String): Boolean {
+//                return s == "Android"
+//            }
+//        })
 
 
 

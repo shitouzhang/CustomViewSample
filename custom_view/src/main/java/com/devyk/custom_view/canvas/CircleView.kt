@@ -18,11 +18,6 @@ import com.devyk.custom_view.base.BaseView
  */
 class CircleView(context: Context?) : BaseView(context) {
 
-
-
-
-
-
     /**
      * 初始化
      */
