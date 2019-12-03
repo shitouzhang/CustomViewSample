@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import com.devyk.custom_view.canvas.CircleView
 import com.devyk.custom_view.utils.Utils
 import kotlinx.android.synthetic.main.activity_canvas_sample.*
 
@@ -14,10 +15,10 @@ import kotlinx.android.synthetic.main.activity_canvas_sample.*
  *     blog    : https://juejin.im/user/578259398ac2470061f3a3fb/posts
  *     github  : https://github.com/yangkun19921001
  *     mailbox : yang1001yk@gmail.com
- *     desc    : This is CanvasSample
+ *     desc    : This is Main4Activity
  * </pre>
  */
-class CanvasSample : Activity() {
+class Main4Activity : Activity() {
 
     private val mImgIds = intArrayOf(//7个
         R.drawable.avft,
@@ -60,21 +61,13 @@ class CanvasSample : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Utils.setActivityFullScreen(this.window)
         super.onCreate(savedInstanceState)
-//        setContentView(CircleView(this))
-
         setContentView(R.layout.activity_canvas_sample)
-
-//        initData()
-
-
-
+        initData()
     }
-
 
 
     private fun initData() {
         revealDrawables = arrayOfNulls<Drawable>(mImgIds.size)
-
         for (i in mImgIds.indices ) {
             val rd = com.devyk.custom_view.canvas.CustomDrawable(
                 resources.getDrawable(mImgIds[i]),
@@ -83,6 +76,6 @@ class CanvasSample : Activity() {
             )
             revealDrawables[i] = rd
         }
-//        gallaryHorizonalScrollView.addImageViews(revealDrawables)
+        gallaryHorizonalScrollView.addImageViews(revealDrawables)
     }
 }

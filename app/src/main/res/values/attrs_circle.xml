@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--1. 我们在 values 目录下创建一个 attrs 开头的文件夹，然后在创建一个 attrs_circle 的文件，-->
 <resources>
     <declare-styleable name="CircleView">
-        <attr name="circle_view_color" format="color"></attr>
+        <attr name="circle_view_color" format="color"/>
     </declare-styleable>
 </resources>

@@ -16,24 +16,19 @@ import com.devyk.customview.R
  *     blog    : https://juejin.im/user/578259398ac2470061f3a3fb/posts
  *     github  : https://github.com/yangkun19921001
  *     mailbox : yang1001yk@gmail.com
- *     desc    : This is CircleView3
+ *     desc    : This is CircleView3 处理padding和wrap_content
  * </pre>
  */
 class CircleView3 : View {
-
-
     var color = Color.RED
-
-    val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     constructor(context: Context) : super(context) {
         init()
     }
 
-
-
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        initTypedrray(context,attrs)
+        initTypedrray(context, attrs)
         init()
     }
 
@@ -42,10 +37,13 @@ class CircleView3 : View {
         val obtainStyledAttributes = context.obtainStyledAttributes(attrs, R.styleable.CircleView)
         color = obtainStyledAttributes.getColor(R.styleable.CircleView_circle_view_color, Color.RED)
         obtainStyledAttributes.recycle()
-
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -74,7 +72,6 @@ class CircleView3 : View {
      */
     override fun draw(canvas: Canvas) {
         super.draw(canvas)
-
         val paddingLeft = paddingLeft
         val paddingRight = paddingRight
         val paddingBottom = paddingBottom
@@ -82,10 +79,7 @@ class CircleView3 : View {
         val height = height - paddingBottom - paddingTop
         val width = width - paddingLeft - paddingRight
         val radius = Math.min(width, height) / 2f
-
-        canvas.drawCircle(paddingLeft + width/2f,paddingTop + height/2f,radius,paint)
-
-
+        canvas.drawCircle(paddingLeft + width / 2f, paddingTop + height / 2f, radius, paint)
     }
 
 

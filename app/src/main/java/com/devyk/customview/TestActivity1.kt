@@ -17,8 +17,7 @@ public class TestActivity1 : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        setContentView(R.layout.activity_test_1)
-//        setContentView(R.layout.activity_test_1)
+        setContentView(R.layout.activity_test_1)
 
 
 

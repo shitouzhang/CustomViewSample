@@ -21,18 +21,6 @@ class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
     var mWidth = 0;
     var mHeight = 0;
 
-
-    override fun draw(canvas: Canvas) {
-        super.draw(canvas)
-        canvas.drawCircle(400f,400f,200f, Paint().also {
-            it.isAntiAlias = true
-            it.strokeWidth = 5f
-            it.strokeCap = Paint.Cap.ROUND
-            it.color = Color.RED
-        })
-    }
-
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
@@ -52,4 +40,16 @@ class CircleView(context: Context?, attrs: AttributeSet?) : View(context, attrs)
             setMeasuredDimension(widthSize,mHeight)
         }
     }
+
+
+    override fun draw(canvas: Canvas) {
+        super.draw(canvas)
+        canvas.drawCircle(400f,400f,200f, Paint().also {
+            it.isAntiAlias = true
+            it.strokeWidth = 5f
+            it.strokeCap = Paint.Cap.ROUND
+            it.color = Color.RED
+        })
+    }
+
 }

@@ -1,11 +1,16 @@
 package com.devyk.customview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MotionEvent
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.devyk.customview.adapter.RecyclerViewAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.button
+import kotlinx.android.synthetic.main.activity_main.button2
+import kotlinx.android.synthetic.main.activity_main.button3
+import kotlinx.android.synthetic.main.activity_main.button4
+import kotlinx.android.synthetic.main.activity_main.button5
+import kotlinx.android.synthetic.main.activity_main.button6
+import kotlinx.android.synthetic.main.activity_main.button7
+import kotlinx.android.synthetic.main.activity_main.button8
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,68 +19,42 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+        initView()
+    }
 
-
-        recyclerView.layoutManager =  LinearLayoutManager(this)
-        recyclerView2.layoutManager =  LinearLayoutManager(this)
-        recyclerView3.layoutManager =  LinearLayoutManager(this)
-
-        recyclerView.adapter = RecyclerViewAdapter(getListData("页面一"))
-        recyclerView2.adapter = RecyclerViewAdapter(getListData("页面二"))
-        recyclerView3.adapter = RecyclerViewAdapter(getListData("页面三"))
-
-        val width = recyclerView.width;
-        val height = recyclerView.height;
-
-        println("recyclerView:$width + $height")
-
-
-        recyclerView.post {
-            val width = recyclerView.width;
-            val height = recyclerView.height;
-
-            println("recyclerView post :$width + $height")
+    private fun initView() {
+        button.setOnClickListener {
+            //绘制圆
+            startActivity(Intent(this@MainActivity, TestActivity::class.java))
         }
-    }
-
-    private fun getListData(i: String): List< String> {
-        var list =  mutableListOf(i)
-
-        for (index in 1 .. 100){
-            list.add("hello:$index")
+        button2.setOnClickListener {
+            //刮刮卡
+            startActivity(Intent(this@MainActivity, TestActivity1::class.java))
         }
-        return list
+        button3.setOnClickListener {
+            //冲突
+            startActivity(Intent(this@MainActivity, Main3Activity::class.java))
+        }
+        button4.setOnClickListener {
+            //GallaryHorizonalScrollView
+            startActivity(Intent(this@MainActivity, Main4Activity::class.java))
+        }
+        button5.setOnClickListener {
+            //表
+            startActivity(Intent(this@MainActivity, Main5Activity::class.java))
+        }
+        button6.setOnClickListener {
+            //基础事件
+            startActivity(Intent(this@MainActivity, Main6Activity::class.java))
+        }
+        button7.setOnClickListener {
+            //事件拦截
+            startActivity(Intent(this@MainActivity, Main7Activity::class.java))
+        }
+        button8.setOnClickListener {
+            //GallaryHorizonalScrollView
+            startActivity(Intent(this@MainActivity, Main8Activity::class.java))
+        }
 
-    }
-
-
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (ev.action == MotionEvent.ACTION_DOWN)
-            println("事件分发机制开始分发 ----> Activity  dispatchTouchEvent")
-        return super.dispatchTouchEvent(ev)
-    }
-
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_DOWN)
-            println("事件分发机制处理 ----> Activity onTouchEvent 执行")
-        return super.onTouchEvent(event)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val width = recyclerView.width;
-        val height = recyclerView.height;
-
-        println("recyclerView:$width + $height")
-    }
-
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        val width = recyclerView.width;
-        val height = recyclerView.height;
-
-        println("recyclerView:$width + $height")
     }
 }
