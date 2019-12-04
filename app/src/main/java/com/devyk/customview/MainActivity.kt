@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, Main7Activity::class.java))
         }
         button8.setOnClickListener {
-            //GallaryHorizonalScrollView
+            //绘制
             startActivity(Intent(this@MainActivity, Main8Activity::class.java))
         }
 

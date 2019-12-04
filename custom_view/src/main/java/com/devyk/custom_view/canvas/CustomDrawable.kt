@@ -16,7 +16,9 @@ import android.view.Gravity
  *     desc    : This is CustomDrawable
  * </pre>
  */
-
+//抠图
+//拼接图
+//随着根据滑动拿到需要裁剪的 w,h 动态拼接
 class CustomDrawable(
     private val mUnselectedDrawable: Drawable,
     private val mSelectedDrawable: Drawable,

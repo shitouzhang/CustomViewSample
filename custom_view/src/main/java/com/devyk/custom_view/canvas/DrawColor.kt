@@ -26,7 +26,11 @@ import com.devyk.custom_view.R
 class DrawColor : BaseView {
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     lateinit var mPicture: Picture
     lateinit var mBitmap: Bitmap
@@ -35,7 +39,7 @@ class DrawColor : BaseView {
         setLayerType(LAYER_TYPE_SOFTWARE, null);
         mPicture = Picture()
 
-        mBitmap =  BitmapFactory.decodeResource(context!!.resources, R.mipmap.girl_gaitubao)
+        mBitmap = BitmapFactory.decodeResource(context!!.resources, R.mipmap.girl_gaitubao)
 
         // 调用录制
         recording();
@@ -124,34 +128,30 @@ class DrawColor : BaseView {
 /*        */
         /**
          * 1. 绘制路径线
-         *//*
-        var path = Path()
-        //1. 设置起始点
-        path.moveTo(100f, 100f)
-        //2. 第二条线的起点就是moveTo 设置的启动
-        path.lineTo(100f,300f)
-        //3. 第三条线的起点就是第二条的终点，依次类推
-        path.lineTo(300f,500f)
-        path.lineTo(500f,200f)
-        //4. 闭合
-        path.close()
-        canvas.drawPath(path, mPaint)
+         */
+//        var path = Path()
+//        //1. 设置起始点
+//        path.moveTo(100f, 100f)
+//        //2. 第二条线的起点就是moveTo 设置的启动
+//        path.lineTo(100f, 300f)
+//        //3. 第三条线的起点就是第二条的终点，依次类推
+//        path.lineTo(300f, 500f)
+//        path.lineTo(500f, 200f)
+//        //4. 闭合
+//        path.close()
+//        canvas.drawPath(path, mPaint)
 
-
-        */
         /**
-         * 2. 绘制弧度路径
-         *//*
-        var path2 = Path()
-        //绘制弧度的起始位置
-        path2.moveTo(100f,600f)
-        var rectF = RectF(100f,600f,600f,1000f)
-        //第一个参数生成椭圆的矩形，第二个参数是弧开始的角度以 X 轴正方向为 0 度，第三个参数是弧持续的角度
-        path2.arcTo(rectF,0f,90f)
-        canvas.drawPath(path2, mPaint)*/
+         * 2. 绘制弧度路径 角度以矩形中心开始算,从x轴开始为0度 顺时针为正
+         */
+//        var path2 = Path()
+//        //绘制弧度的起始位置
+//        path2.moveTo(100f, 600f)
+//        var rectFlot = RectF(100f, 600f, 600f, 1500f)
+//        //第一个参数生成椭圆的矩形，第二个参数是弧开始的角度以 X 轴正方向为 0 度，第三个参数是弧持续的角度
+//        path2.arcTo(rectFlot, 0f, 120f)
+//        canvas.drawPath(path2, mPaint)
 
-
-/*        */
         /**
          * 1. 绘制椭圆
          *//*
@@ -213,8 +213,9 @@ class DrawColor : BaseView {
 //        mPicture.draw(canvas)
 
 
-        var rectF = RectF(500f, 100f, 900f, 500f)
-/*        *//**
+//        var rectF = RectF(500f, 100f, 900f, 500f)
+/*        */
+        /**
          * 1. 绘制弧
          * @param ovar : 矩形坐标
          * @param startAngle : 开始的角度
@@ -224,24 +225,28 @@ class DrawColor : BaseView {
          *//*
         canvas.drawArc(rectF, 0f, 90f, true, mPaint)
 
-        *//**
+        */
+        /**
          * 2. 绘制弧
          *//*
         canvas.drawArc(100f,500f,500f,900f,0f,90f,false,mPaint)*/
 /*
-        *//**
+        */
+        /**
          * 1. 根据 RectF 绘制圆角矩形
          * @param rx: x 轴上的圆角半径
          * @param ry: y 轴上的圆角半径
          *//*
         canvas.drawRoundRect(rectF,50f,50f,mPaint)
-        *//**
+        */
+        /**
          * 2. 根据输入矩形位置绘制圆角矩形
          *//*
         canvas.drawRoundRect(100f,600f,500f,900f,100f,100f,mPaint)*/
 
 
-/*        *//**
+/*        */
+        /**
          * 1. 原始矩形
          *//*
         mPaint.color = Color.RED
@@ -249,7 +254,8 @@ class DrawColor : BaseView {
         canvas.drawRoundRect(rectF,50f,50f,mPaint)
 
 
-        *//**
+        */
+        /**
          * 2.将原始图形缩小 0.5 倍
          *//*
         var rectF2 = RectF(100f, 100f, 500f, 500f)
@@ -258,7 +264,8 @@ class DrawColor : BaseView {
         canvas.scale(0.5f,0.5f)
         canvas.drawRoundRect(rectF2,50f,50f,mPaint)    */
 
-/*        *//**
+/*        */
+        /**
          * 1. 原始矩形
          *//*
         mPaint.color = Color.RED
@@ -266,7 +273,8 @@ class DrawColor : BaseView {
         canvas.drawRoundRect(rectF,50f,50f,mPaint)
 
 
-        *//**
+        */
+        /**
          * 2.将原始图形旋转 90°
          *//*
         mPaint.color = Color.BLUE
@@ -274,7 +282,8 @@ class DrawColor : BaseView {
         canvas.rotate(45f)
         canvas.drawRoundRect(rectF,50f,50f,mPaint)
 
-        *//**
+        */
+        /**
          * 3.将原始图形旋转 28°
          * 以 坐标点 500，100 顺时针旋转 280°
          *//*
@@ -284,13 +293,15 @@ class DrawColor : BaseView {
         canvas.drawRoundRect(rectF,50f,50f,mPaint)*/
 
 
-/*        *//**
+/*        */
+        /**
          * 1. 原始图形
          *//*
         mPaint.color = Color.RED
         mPaint.alpha = 100
         canvas.drawRoundRect(rectF,50f,50f,mPaint)
-        *//**
+        */
+        /**
          * 2.图层开始错切
          *//*
         canvas.skew(0f,0.5f)
@@ -299,157 +310,115 @@ class DrawColor : BaseView {
         canvas.drawRoundRect(rectF,50f,50f,mPaint)*/
 
 /*
-        *//**
+        */
+        /**
          * 原始图形
          *//*
         canvas.drawBitmap(mBitmap,100f,100f,mPaint)
-        *//**
+        */
+        /**
          *1. 矩阵平移 500，500
          *//*
         var matrix = Matrix()
         matrix.setTranslate(500f,500f)
         canvas.drawBitmap(mBitmap,matrix,mPaint)
 
-        *//**
+        */
+        /**
          * 2. 矩阵缩放 0.5 倍
          *//*
         var matrix2 = Matrix()
         matrix2.setScale(0.5f,0.5f)
         canvas.drawBitmap(mBitmap,matrix2,mPaint)
 
-        *//**
+        */
+        /**
          * 3. 矩阵旋转 45°
          *//*
         var matrix3 = Matrix()
         matrix3.setRotate(125f,500f,500f)
         canvas.drawBitmap(mBitmap,matrix3,mPaint)
 
-        *//**
+        */
+        /**
          * 4. 错切
          *//*
         var matrix4 = Matrix()
         matrix4.setSkew(0.5f,0.5f)
         canvas.drawBitmap(mBitmap,matrix4,mPaint)*/
 
-/*
-        *//**
-         * 1. 原始图形
-         *//*
-        mPaint.color = Color.RED
-        mPaint.alpha = 100
-        canvas.drawRect(300f,300f,700f,700f,mPaint)
-        canvas.drawText("1.原始",400f,600f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 100f
-            it.color = Color.WHITE
-        })
-        *//**
-         * 2. 在 RectF 矩形区域裁剪一块画布，绘制图形只能在该区域中绘制
-         *//*
-        var rectf2 = RectF(100f, 100f , 500f, 500f);
-        canvas.clipRect(rectf2)
-        mPaint.color = Color.BLUE
-        mPaint.alpha = 100
-        canvas.drawColor(mPaint.color)
-        canvas.drawText("2.clip",200f,200f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 100f
-            it.color = Color.WHITE
-        })
-
-        *//**
-         * 3. 在 300，300；700，700 坐标点上绘制矩形
-         *//*
-        mPaint.color = Color.YELLOW
-        mPaint.alpha = 100
-        canvas.drawRect(300f,300f,700f,700f,mPaint)
-        canvas.drawText("3.裁剪之后",350f,400f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 30f
-            it.color = Color.WHITE
-        }) */
-/*
-        *//**
-         * 1. 原始图形
-         *//*
-        mPaint.color = Color.RED
-        mPaint.alpha = 100
-        canvas.drawRect(300f,300f,700f,700f,mPaint)
-        canvas.drawText("1.原始",400f,600f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 100f
-            it.color = Color.WHITE
-        })
-        *//**
-         * 2. 在 RectF 矩形区域裁剪一块画布，绘制图形只能在该区域中绘制
-         *//*
-        var rectf2 = RectF(100f, 100f , 500f, 500f);
-        //将未裁剪的图层先进行保存
-        canvas.save()
-        canvas.clipRect(rectf2)
-        mPaint.color = Color.BLUE
-        mPaint.alpha = 100
-        canvas.drawColor(mPaint.color)
-        canvas.drawText("2.clip",200f,200f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 100f
-            it.color = Color.WHITE
-        })
-
-        *//**
-         * 3. 在 300，300；700，700 坐标点上绘制矩形
-         *//*
-        //裁剪完之后出栈
-        canvas.restore()
-        mPaint.color = Color.YELLOW
-        mPaint.alpha = 100
-        canvas.drawRect(300f,300f,600f,600f,mPaint)
-        canvas.drawText("3.裁剪之后",350f,400f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 30f
-            it.color = Color.WHITE
-        })*/
+        // 1. 原始图形
+//        mPaint.color = Color.RED
+//        mPaint.alpha = 100
+//        canvas.drawRect(300f, 300f, 700f, 700f, mPaint)
+//        canvas.drawText("1.原始图形123456", 400f, 600f, Paint(Paint.ANTI_ALIAS_FLAG).also {
+//            it.textSize = 80f
+//            it.color = Color.BLACK
+//        })
+//
+//        // 2. 在 RectF 矩形区域裁剪一块画布，绘制图形只能在该区域中绘制!!!!!!!!
+//        var rectf2 = RectF(100f, 100f, 500f, 500f)
+//        //*****将未裁剪的图层先进行保存*****
+//        canvas.save()
+//        canvas.clipRect(rectf2)  //裁剪了以后只能在这个区域绘制
+//        mPaint.color = Color.BLUE
+//        mPaint.alpha = 100
+//        canvas.drawColor(mPaint.color)
+//        canvas.drawText("2.clip图形123456", 200f, 200f, Paint(Paint.ANTI_ALIAS_FLAG).also {
+//            it.textSize = 80f
+//            it.color = Color.BLACK
+//        })
+//        //*****裁剪完之后出栈*****
+//        canvas.restore()
+//        //3. 在 300，300；700，700 坐标点上绘制矩形
+//        mPaint.color = Color.YELLOW
+//        mPaint.alpha = 100
+//        canvas.drawRect(300f, 300f, 600f, 600f, mPaint)
+//        canvas.drawText("3.裁剪之后123456", 350f, 400f, Paint(Paint.ANTI_ALIAS_FLAG).also {
+//            it.textSize = 80f
+//            it.color = Color.BLACK
+//        })
 
         /**
          * 1. 原始图像
          */
         mPaint.color = Color.RED
         mPaint.alpha = 200
-        canvas.drawRect(300f,300f,1000f,1000f,mPaint)
-        canvas.drawText("1. 裁剪图层",750f,750f,Paint(Paint.ANTI_ALIAS_FLAG).also {
+        canvas.drawRect(300f, 300f, 1000f, 1000f, mPaint)
+        canvas.drawText("1. 裁剪图层123456", 750f, 750f, Paint(Paint.ANTI_ALIAS_FLAG).also {
             it.textSize = 30f
-            it.color = Color.WHITE
+            it.color = Color.BLACK
         })
         /**
          * 2. 保存
          */
-        val saveLayer = canvas.saveLayer(300f, 300f, 1000f, 1000f, mPaint,ALL_SAVE_FLAG)
-        mPaint.color = Color.BLUE
+        //bounds:要保存的区域所对应的举行对象
+        //saveFlags：取值 ALL_SAVE_FLAG 表示保存全部内容
+        //saveLayer 只要不restoreToCount 所有的绘制都只会在这个区域绘制！！也就是指定在这个区域绘制内容
+        val saveLayer = canvas.saveLayer(300f, 300f, 800f, 800f, mPaint, ALL_SAVE_FLAG)
+        mPaint.color = Color.YELLOW
         mPaint.alpha = 100
-        canvas.drawCircle(500f,500f,300f,mPaint)
-        canvas.drawText("2. 绘制圆",350f,700f,Paint(Paint.ANTI_ALIAS_FLAG).also {
-            it.textSize = 30f
-            it.color = Color.WHITE
+        canvas.drawCircle(500f, 500f, 300f, mPaint)
+        canvas.drawText("2. 绘制圆123456", 350f, 700f, Paint(Paint.ANTI_ALIAS_FLAG).also {
+            it.textSize = 80f
+            it.color = Color.BLACK
         })
-
         /**
          * 3.恢复图层
          */
         canvas.restoreToCount(saveLayer)
-        /**
-         *
-         */
         mPaint.color = Color.BLUE
         mPaint.alpha = 100
-        canvas.drawCircle(400f,400f,200f,mPaint)
-        canvas.drawText("3. 恢复",350f,250f,Paint(Paint.ANTI_ALIAS_FLAG).also {
+        canvas.drawCircle(400f, 400f, 200f, mPaint)
+        canvas.drawText("3. 恢复123456", 350f, 350f, Paint(Paint.ANTI_ALIAS_FLAG).also {
             it.textSize = 30f
-            it.color = Color.WHITE
+            it.color = Color.BLACK
         })
-
-
-
 
     }
 
 
-
     private fun recording() {
-
         // 开始录制
         val canvas = mPicture.beginRecording(500, 500)
         // 创建一个画笔

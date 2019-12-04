@@ -48,7 +48,11 @@ class ClockView : View {
         initPaint()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         initPaint()
     }
 
@@ -90,6 +94,7 @@ class ClockView : View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val height = measuredHeight
         val width = measuredWidth
+        println("-------------------->宽$width 高$height") //宽900 高900
         mX = (width / 2).toFloat()
         mY = (height / 2).toFloat()
         mR = mX.toInt() - 5
@@ -103,48 +108,48 @@ class ClockView : View {
         //2. 绘制圆心
         canvas.drawCircle(mX, mY, 15f, mPaintMinute!!)
 
-        //3. 绘制刻度
+//        //3. 绘制刻度
         drawLines(canvas)
-
-        //4. 绘制整点
+//
+//        //4. 绘制整点
         drawText(canvas)
-
-        //5. 更新时间
-        updateCurrentTime(canvas)
+//
+//        //5. 更新时间
+//        updateCurrentTime(canvas)
     }
 
 
-/*    *
+    /**
      * 绘制时钟刻度和分钟刻度
-     *
-     * @param canvas 画布*/
-
+     * @param canvas 画布
+     * */
     private fun drawLines(canvas: Canvas) {
         for (i in 0..59) {
             if (i % 5 == 0) {
                 //绘制整点刻度
                 mPaint!!.strokeWidth = 8f
-                canvas.drawLine(mX, mY - mR, mX, mY - mR + 40, mPaint!!)
+                canvas.drawLine(mX, mY - mR, mX, mY - mR + 70, mPaint!!)
             } else {
                 mPaint!!.strokeWidth = 3f
                 //绘制分钟刻度
                 canvas.drawLine(mX, mY - mR, mX, mY - mR + 30, mPaint!!)
             }
             //绕着(x,y)旋转6°
-            canvas.rotate(6f, mX, mY)
+            canvas.rotate(6f, mX, mY) //360/60
         }
     }
 
-/*    *
+    /**
      * 绘制整点数字
      *
-     * @param canvas 画布*/
+     * @param canvas 画布
+     * */
 
     private fun drawText(canvas: Canvas) {
         // 获取文字高度用于设置文本垂直居中
         val textSize = mPaintNum!!.fontMetrics.bottom - mPaintNum!!.fontMetrics.top
-        // 数字离圆心的距离,40为刻度的长度,20文字大小
-        val distance = mR - 40 - 20
+        // 数字离圆心的距离,70为刻度的长度,20文字大小
+        val distance = mR - 70 - 20
         // 数字的坐标(a,b)
         var a: Float
         var b: Float
@@ -154,6 +159,7 @@ class ClockView : View {
         mPaintNum!!.style = STROKE
         // 每30°写一个数字
         for (i in 0..11) {
+            //3.14/180*角度 = 弧度
             a = (distance * Math.sin(i.toDouble() * 30.0 * Math.PI / 180) + mX).toFloat()
             b = (mY - distance * Math.cos(i.toDouble() * 30.0 * Math.PI / 180)).toFloat()
 

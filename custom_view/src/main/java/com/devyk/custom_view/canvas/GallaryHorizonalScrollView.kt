@@ -16,7 +16,7 @@ import android.widget.LinearLayout
  *     blog    : https://juejin.im/user/578259398ac2470061f3a3fb/posts
  *     github  : https://github.com/yangkun19921001
  *     mailbox : yang1001yk@gmail.com
- *     desc    : This is GallaryHorizonalScrollView
+ *     desc    : 滑动切换彩色图片
  * </pre>
  */
 
@@ -49,10 +49,9 @@ class GallaryHorizonalScrollView : HorizontalScrollView, View.OnTouchListener {
         //得到某一张图片的宽度
         val v = container!!.getChildAt(0)
         icon_width = v.width
-        Log.d(TAG, "icon_width = $icon_width")
-        //得到hzv的中间x坐标
+        Log.d(TAG, "图片的宽度 = $icon_width")
         centerX = width / 2
-        Log.d(TAG, "centerX = $centerX")
+        Log.d(TAG, "hzv的中间x坐标 = $centerX")
         //处理下，中心坐标改为中心图片的左边界
         centerX = centerX - icon_width / 2
         //给LinearLayout和hzv之间设置边框距离
@@ -70,17 +69,17 @@ class GallaryHorizonalScrollView : HorizontalScrollView, View.OnTouchListener {
         // 渐变效果
         //得到hzv滑出去的距离
         val scrollX = scrollX
-        Log.d(TAG, scrollX.toString() + "")
+        Log.d(TAG, "滑出去的距离----->" + scrollX.toString())
         //找到两张渐变的图片的下标--左，右
         val index_left = scrollX / icon_width
-        Log.d(TAG, index_left.toString() + "index_left")
+        Log.d(TAG, "icon_width----->" + icon_width)
+        Log.d(TAG, "index_left----->" + index_left.toString())
         val index_right = index_left + 1
         //设置图片的level
         for (i in 0 until container!!.childCount) {
             if (i == index_left || i == index_right) {
                 //变化
                 //比例：
-
                 val ratio = 5000f / icon_width
                 val iv_left = container!!.getChildAt(index_left) as ImageView
                 //scrollX%icon_width:代表滑出去的距离

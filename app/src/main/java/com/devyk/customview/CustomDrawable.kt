@@ -17,7 +17,7 @@ import android.view.Gravity
  *
  * </pre>
  */
-public class CustomDrawable : Drawable {
+class CustomDrawable : Drawable {
 
     lateinit var unseleter: Drawable
     lateinit var selecter: Drawable
