@@ -23,9 +23,6 @@ class ScrollerSample_1 : LinearLayout {
 
     constructor(context: Context) : super(context)
 
-    /**
-     * 定义滑动 Scroller
-     */
     private val mScroller = Scroller(context)
 
 

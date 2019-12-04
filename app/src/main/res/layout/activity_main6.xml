@@ -7,7 +7,22 @@
         tools:context=".Main6Activity">
 
     <com.devyk.customview.sample_1.CustomView_1
+            android:id="@+id/view01"
             android:layout_width="match_parent"
             android:layout_height="500dp" />
+
+<!--    <com.devyk.customview.sample_1.ScrollerLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_below="@+id/view01">-->
+<!--        <TextView-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:text="*********"/>-->
+<!--    </com.devyk.customview.sample_1.ScrollerLayout>-->
+
+    <com.devyk.customview.sample_1.SlideView1
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
 
 </RelativeLayout>

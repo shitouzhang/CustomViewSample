@@ -89,6 +89,7 @@ public class ScrollerLayout extends ViewGroup {
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mXDown = ev.getRawX();
+                //上次触发ACTION_MOVE事件时的屏幕坐标
                 mXLastMove = mXDown;
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -136,6 +137,7 @@ public class ScrollerLayout extends ViewGroup {
     public void computeScroll() {
         // 第三步，重写computeScroll()方法，并在其内部完成平滑滚动的逻辑
         if (mScroller.computeScrollOffset()) {
+            //getCurrX()新的X偏移量是距原点的绝对距离。
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             invalidate();
         }

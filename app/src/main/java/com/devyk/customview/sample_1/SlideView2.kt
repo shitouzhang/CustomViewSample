@@ -18,8 +18,7 @@ import android.widget.Scroller
  *     desc    : This is SlideView2
  * </pre>
  */
-
-public class SlideView2(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
+class SlideView2(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     /**
      * 记录上次滑动的坐标
@@ -51,7 +50,7 @@ public class SlideView2(context: Context?, attrs: AttributeSet?) : View(context,
             MotionEvent.ACTION_MOVE -> {
                 println("拿到相对于屏幕按下的坐标点2: x:${event.rawX} y:${event.getRawY()}")
                 x = event.getRawX() - mLastX
-                y =  event.getRawY() - mLastY
+                y = event.getRawY() - mLastY
 
 
                 translationX = event.getRawX() - mLastX

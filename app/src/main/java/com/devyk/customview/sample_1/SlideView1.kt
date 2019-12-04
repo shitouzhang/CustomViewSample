@@ -17,13 +17,13 @@ import android.view.View
  *     desc    : This is SlideView1
  * </pre>
  */
-public class SlideView1(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
+class SlideView1(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
 
     /**
      * 记录上次滑动的坐标
      */
-    private var mLastX = 0;
-    private var mLastY = 0;
+    private var mLastX = 0
+    private var mLastY = 0
 
     /**
      * 初始化画笔
@@ -39,14 +39,14 @@ public class SlideView1(context: Context?, attrs: AttributeSet?) : View(context,
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 //拿到相对于屏幕按下的坐标点
-                mLastX = event.getX().toInt();
-                mLastY = event.getY().toInt();
+                mLastX = event.getRawX().toInt();
+                mLastY = event.getRawY().toInt();
                 println("拿到相对于屏幕按下的坐标点: x:$mLastX y:$mLastY")
 
             }
             MotionEvent.ACTION_MOVE -> {
-                var offsetX = event.getX().toInt() - mLastX;//计算 View 新的摆放位置
-                var offsetY = event.getY().toInt() - mLastY;
+                var offsetX = event.getRawX().toInt() - mLastX;//计算 View 新的摆放位置
+                var offsetY = event.getRawY().toInt() - mLastY;
                 //重新放置新的位置
                 layout(getLeft() + offsetX, getTop() + offsetY, getRight() + offsetX, getBottom() + offsetY);
             }

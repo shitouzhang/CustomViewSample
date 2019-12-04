@@ -33,7 +33,6 @@ class MyRecyclerView(context: Context, attrs: AttributeSet?) : RecyclerView(cont
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         val x = ev.getX().toInt()
         val y = ev.getY().toInt()
-
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {
             var par =    parent as ScrollerViewPager

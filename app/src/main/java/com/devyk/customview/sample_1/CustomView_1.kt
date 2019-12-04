@@ -125,7 +125,7 @@ class CustomView_1 : View {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas.drawCircle(400f, 400f, 200f, pint)
+        canvas.drawCircle(100f, 100f, 200f, pint)
         val x = x
         val y = y
         val translationX = translationX
@@ -152,6 +152,10 @@ class CustomView_1 : View {
                 var targetIndex = (getScrollX() + getWidth() / 2) / getWidth();
                 var dx = targetIndex * getWidth() - getScrollX();
                 // 第二步，调用startScroll()方法来初始化滚动数据并刷新界面
+//                第一个参数 startX： 开始点的x坐标
+//                第二个参数 startY： 开始点的y坐标
+//                第三个参数 dx： 水平方向的偏移量，正数会将内容向左滚动。
+//                第四个参数 dy： 垂直方向的偏移量，正数会将内容向上滚动。
                 mScroller.startScroll(-200, 0, dx - 300, 0);
                 invalidate();
             }
@@ -164,6 +168,7 @@ class CustomView_1 : View {
 
                 println("curX:$curX curY:$curY")
                 obtain.clear()
+                //随着手指的移动一点点绘制
 //                scrollBy(-curX.toInt(), -curY.toInt())
                 scrollBy(curX.toInt(), curY.toInt())
             }
